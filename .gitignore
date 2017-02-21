@@ -1,0 +1,24 @@
+# IDE, Editors
+.idea
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Node
+.npm
+node_modules
+.lock-wscript
+*.tgz
+
+# Grunt
+.grunt
+
+# Project
+build/*

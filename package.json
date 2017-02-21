@@ -1,0 +1,31 @@
+{
+  "name": "pasman-mobile-fe",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/olmisoft/pasman-mobile-fe.git"
+  },
+  "author": "Roman Zaycev <roman.zaycev@olmisoft.com>",
+  "homepage": "https://bitbucket.org/olmisoft/pasman-mobile-fe#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.7.2",
+    "grunt": "^0.4.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-uglify": "^2.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-text-replace": "^0.4.0",
+    "pug": "^2.0.0-beta11"
+  },
+  "dependencies": {
+    "normalize-css": "^2.3.1"
+  }
+}
