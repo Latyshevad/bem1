@@ -13,3 +13,9 @@
     }
 }
 
+
+.b-example{
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #c0c0c0;
+}

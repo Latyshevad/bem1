@@ -1,15 +1,19 @@
 var loadData = function (debug) {
     return function (destination, source) {
-        var data = {},
+        delete require.cache[require.resolve('./source/data/!data.js')];
+        var data = require('./source/data/!data.js'),
             dataJsFile = './' + source[0]
-                .replace('pages', 'data')
-                .replace('.pug', '.js');
-
-        console.log(dataJsFile);
+                    .replace('pages', 'data')
+                    .replace('.pug', '.js');
 
         try {
             if (require('fs').statSync(dataJsFile)) {
-                data = require(dataJsFile);
+                delete require.cache[require.resolve(dataJsFile)];
+                data = require('extend')(
+                    data,
+                    require(dataJsFile),
+                    {}
+                );
             }
         } catch (e) {}
 
@@ -62,9 +66,14 @@ module.exports = function(grunt) {
 
         concat: {
             options: {},
-            default: {
+            js: {
                 files: {
                     'build/js/common.js': ['source/js/**/*.js']
+                }
+            },
+            css: {
+                files: {
+                    'source/less/style.less.c': ['source/less/style.less', 'source/less/blocks/*.less']
                 }
             }
         },
@@ -84,7 +93,7 @@ module.exports = function(grunt) {
                     compress: false
                 },
                 files: {
-                    'build/css/style.css': 'source/less/style.less'
+                    'build/css/style.css': 'source/less/style.less.c'
                 }
             },
             prod: {
@@ -92,7 +101,7 @@ module.exports = function(grunt) {
                     compress: true
                 },
                 files: {
-                    'build/css/style.min.css': 'source/less/style.less'
+                    'build/css/style.min.css': 'source/less/style.less.c'
                 }
             }
         },
@@ -128,6 +137,12 @@ module.exports = function(grunt) {
             }
         },
 
+        clean: {
+            afterbuild: {
+                src: ['source/less/style.less.c']
+            }
+        },
+
         watch: {
             options: {
                 livereload: false
@@ -135,7 +150,7 @@ module.exports = function(grunt) {
             scripts: {
                 files: ['source/js/**/*.js'],
                 tasks: [
-                    'concat'
+                    'concat:js'
                 ],
                 options: {
                     spawn: false
@@ -143,7 +158,10 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['source/less/**/*.less'],
-                tasks: ['less:default'],
+                tasks: [
+                    'concat:css',
+                    'less:default'
+                ],
                 options: {
                     spawn: false
                 }
@@ -170,6 +188,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Default task.
     grunt
@@ -178,8 +197,10 @@ module.exports = function(grunt) {
             [
                 'copy',
                 'pug:default',
-                'concat',
-                'less:default'
+                'concat:js',
+                'concat:css',
+                'less:default',
+                'clean:afterbuild'
             ]
         );
 
@@ -190,11 +211,13 @@ module.exports = function(grunt) {
             [
                 'copy',
                 'pug:prod',
-                'concat',
+                'concat:js',
                 'uglify:prod',
+                'concat:css',
                 'less:prod',
                 'postcss:prod',
-                'replace:prod'
+                'replace:prod',
+                'clean:afterbuild'
             ]
         );
 };

@@ -2,7 +2,10 @@ doctype html
 html
     head
         title #{title}
-        script(src="js/common.js")
         link(rel="stylesheet", href="css/style.css")
     body
-        block content
+        .pw
+            .pw__i
+                block content
+        // Scripts
+        script(src="js/common.js")
