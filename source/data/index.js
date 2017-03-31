@@ -1,5 +1,5 @@
 var data = {
-    title: 'Main page'
+    title: 'Example main page'
 };
 
 module.exports = data;

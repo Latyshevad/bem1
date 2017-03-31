@@ -1,16 +1,16 @@
 {
-  "name": "pasman-mobile-fe",
+  "name": "start-fe",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starter Grunt project template",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/olmisoft/pasman-mobile-fe.git"
+    "url": "git+ssh://git@bitbucket.org:roman-zaycev/fe-start.git"
   },
   "author": "Roman Zaycev <roman.zaycev@olmisoft.com>",
-  "homepage": "https://bitbucket.org/olmisoft/pasman-mobile-fe#readme",
+  "homepage": "https://bitbucket.org/roman-zaycev/fe-start/overview#readme",
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "grunt": "^0.4.0",
@@ -21,7 +21,9 @@
     "grunt-contrib-pug": "^1.0.0",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-http-server": "^2.0.0",
     "grunt-postcss": "^0.8.0",
+    "grunt-spritesmith": "^6.4.0",
     "grunt-text-replace": "^0.4.0",
     "pug": "^2.0.0-beta11"
   },
