@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Starter Grunt project template",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "grunt": "grunt",
+    "watch": "grunt watch",
+    "serve": "grunt serve",
+    "build": "grunt",
+    "build-prod": "grunt prod"
   },
   "repository": {
     "type": "git",
