@@ -291,6 +291,19 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false
                 }
+            },
+            sprite: {
+                files: [
+                    RESOURCES_PATH + '/sprite/**/*.png'
+                ],
+                tasks: [
+                    'sprite',
+                    'concat:css',
+                    'less:default'
+                ],
+                options: {
+                    spawn: false
+                }
             }
         },
 
@@ -332,7 +345,7 @@ module.exports = function(grunt) {
                 'concat:js',
                 'concat:css',
                 'less:default',
-                'clean:afterbuild'
+                'watch'
             ]
         );
 
