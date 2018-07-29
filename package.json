@@ -1,7 +1,7 @@
 {
-  "name": "start-fe",
+  "name": "bem1",
   "version": "1.1.0",
-  "description": "Starter Grunt project template",
+  "description": "Template bem1",
   "scripts": {
     "grunt": "grunt",
     "watch": "grunt watch",
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:olmisoft/fe-start.git"
+    "url": "https://github.com/Latyshevad/bem1.git"
   },
-  "author": "Roman Zaycev <roman.zaycev@olmisoft.com>",
-  "homepage": "https://bitbucket.org/olmisoft/fe-start/overview#readme",
+  "author": "Andrey Latyshev <latyshevad89@gmail.com>",
+  "homepage": "https://github.com/Latyshevad/bem1.git",
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "grunt": "^0.4.0",
